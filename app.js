@@ -21,6 +21,10 @@ app.use('/Register',product);
 app.use(function(req, res, next) {  
   next(createError(404));  
 });  
+
+app.get('/', (req, res) => {
+  return res.send('Received a GET HTTP method');
+});
   
 // error handler  
 app.use(function(err, req, res, next) {  
@@ -32,5 +36,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);  
   res.render('error');  
 });  
+<<<<<<< HEAD
 app.listen(5000);
 module.exports = app; 
+=======
+app.listen(4000);
+module.exports = app; 
+>>>>>>> 433e779c5006747386e3528383801b0e1ec019b9
