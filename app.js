@@ -5,15 +5,17 @@ var cors=require('cors');
 var logger = require('morgan'); 
 var product=require('./Routes/Register');  
 var app = express();  
+
   
 // view engine setup  
+app.use(express.static(path.join(__dirname, 'public')));  
 app.set('views', path.join(__dirname, 'views'));  
 app.set('view engine', 'jade');  
 app.use(cors());  
 app.use(logger('dev'));  
 app.use(express.json());  
 app.use(express.urlencoded({ extended: false }));  
-app.use(express.static(path.join(__dirname, 'public')));   
+ 
 app.use('/Register',product);  
 // catch 404 and forward to error handler  
 app.use(function(req, res, next) {  
@@ -30,5 +32,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);  
   res.render('error');  
 });  
-app.listen(4000);
+app.listen(5000);
 module.exports = app; 
