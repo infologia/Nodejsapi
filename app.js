@@ -19,6 +19,10 @@ app.use('/Register',product);
 app.use(function(req, res, next) {  
   next(createError(404));  
 });  
+
+app.get('/', (req, res) => {
+  return res.send('Received a GET HTTP method');
+});
   
 // error handler  
 app.use(function(err, req, res, next) {  
