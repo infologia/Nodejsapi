@@ -22,7 +22,18 @@ router.post('/',function(req,res,next){
         });
     }
 
-
+    Register.count({ Emailid:req.body.Emailid})
+    .then((count) => {
+      if (count > 0) {     
+        return res.status(400).send({
+            message: "User already exist"
+        });
+      } 
+      else
+      {
+          
+      }
+    });
     // Create a Product
     const reg = new Register({
         Firstname: req.body.Firstname, 
